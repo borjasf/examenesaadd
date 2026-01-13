@@ -1,0 +1,19 @@
+
+{
+    "id": "id",
+    "jugador_blancas": "blanco",
+    "jugador_negras": "negro",
+    "movimientos": [
+        {
+            "blancas": "e5",
+            "negras": "d4"
+        }
+    ],
+    "resultado": null,
+    "ronda": 1,
+    "tiempo_limite": {
+        "incremento": 2.0,
+        "por_jugador": 3.2
+    },
+    "torneo": "t1"
+}

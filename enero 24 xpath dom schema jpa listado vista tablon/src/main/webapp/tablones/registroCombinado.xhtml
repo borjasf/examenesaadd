@@ -1,0 +1,128 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">Creación de tablones y sus anuncios</ui:define>
+
+    <ui:define name="content">
+        <section style="max-width: 600px; margin: 0 auto; background: #fafbfc; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 2em 2em 1.5em 2em;">
+            <h2 style="text-align:center; color:#2c3e50; margin-bottom:1.5em;">
+                Creación de tablones y sus anuncios
+            </h2>
+            <h:messages globalOnly="true"
+                        style="margin-bottom:1em; color:#155724; background:#d4edda; border:1px solid #c3e6cb; border-radius:4px; padding:0.5em;" />
+
+            <!-- Formulario 1: Alta de tablon -->
+            <h:form rendered="#{registroTablonWeb.tablonRegistrado eq false}">
+                <h3 style="color:#2980b9; margin-bottom:1em;">Alta de Tablón</h3>
+
+                <h:panelGrid columns="2" style="width:100%; margin-bottom:1em;" columnClasses="etiqueta, campo">
+                    <h:outputLabel value="Nombre:" for="nombre" />
+                    <h:inputText id="nombre"
+                                 value="#{registroTablonWeb.nombre}"
+                                 required="true"
+                                 style="width:95%" />
+                </h:panelGrid>
+
+                <div style="text-align:center;">
+                    <h:commandButton value="Crear"
+                                     action="#{registroTablonWeb.registrarTablon()}"
+                                     styleClass="button primary"
+                                     style="margin-top:0.5em;" />
+                </div>
+            </h:form>
+
+            <!-- Formulario 2: Registrar anuncio (solo si hay tablón creado) -->
+            <h:form rendered="#{registroTablonWeb.tablonRegistrado}">
+                <h3 style="color:#2980b9; margin-bottom:1em;">Registrar Anuncio</h3>
+
+                <h:panelGrid columns="2" style="width:100%; margin-bottom:1em;" columnClasses="etiqueta, campo">
+                    <h:outputLabel value="Título:" for="titulo" />
+                    <h:inputText id="titulo"
+                                 value="#{registroTablonWeb.titulo}"
+                                 required="true"
+                                 style="width:95%" />
+
+                    <h:outputLabel value="Resumen:" for="resumen" />
+                    <h:inputText id="resumen"
+                                 value="#{registroTablonWeb.resumen}"
+                                 required="true"
+                                 style="width:95%" />
+
+                    <h:outputLabel value="Fecha publicación:" for="fechaPublicacion" />
+                    <h:inputTextarea id="fechaPublicacion"
+                                     value="#{registroTablonWeb.fechaPublicacion}"
+                                     style="width:95%" />
+                    <!-- Comentario corregido: campo opcional -->
+
+                    <h:outputLabel value="Enlace:" for="enlace" />
+                    <h:inputTextarea id="enlace"
+                                     value="#{registroTablonWeb.enlace}"
+                                     style="width:95%" />
+                </h:panelGrid>
+
+                <div style="text-align:center;">
+                    <h:commandButton value="Registrar"
+                                     action="#{registroTablonWeb.registrarAnuncio()}"
+                                     styleClass="button primary"
+                                     style="margin-top:0.5em;" />
+                    <h:commandButton value="Omitir"
+                                     action="#{registroTablonWeb.limpiarFormulario()}"
+                                     immediate="true"
+                                     style="margin-left:0.5em;" />
+                </div>
+            </h:form>
+        </section>
+
+        <!-- Formulario para registrar anuncio para tablón existente -->
+        <section style="max-width: 600px; margin: 2em auto 0 auto; background: #f8f9fa; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 2em 2em 1.5em 2em;">
+            <h2 style="text-align:center; color:#2c3e50; margin-bottom:1.5em;">
+                Registrar Anuncio para tablón existente
+            </h2>
+            <h:messages globalOnly="true"
+                        style="margin-bottom:1em; color:#155724; background:#d4edda; border:1px solid #c3e6cb; border-radius:4px; padding:0.5em;" />
+
+            <h:form id="formAnuncioExistente">
+                <h:panelGrid columns="2" style="width:100%; margin-bottom:1em;" columnClasses="etiqueta, campo">
+                    <h:outputLabel value="Selecciona tablón:" for="tablonExistente" />
+
+                    <!-- Suponiendo que tablon es List<Tablon> con id y nombre -->
+                    <h:selectOneMenu id="tablonExistente"
+                                     value="#{registroTablonWeb.idTablon}"
+                                     required="true"
+                                     style="width:95%">
+                        <f:selectItem itemLabel="-- Selecciona --" itemValue="" />
+                        <f:selectItems value="#{registroTablonWeb.cargarTodosLosTablones()}"
+                                       var="t" itemLabel="#{t.titulo}" itemValue="#{t.id}" />
+                    </h:selectOneMenu>
+
+                    <h:outputLabel value="Título:" for="tituloExistente" />
+                    <h:inputText id="tituloExistente"
+                                 value="#{registroTablonWeb.titulo}"
+                                 required="true"
+                                 style="width:95%" />
+
+                    <h:outputLabel value="Resumen:" for="resumenExistente" />
+                    <h:inputText id="resumenExistente"
+                                 value="#{registroTablonWeb.resumen}"
+                                 required="true"
+                                 style="width:95%" />
+
+                    <h:outputLabel value="Enlace:" for="enlaceExistente" />
+                    <h:inputTextarea id="enlaceExistente"
+                                     value="#{registroTablonWeb.enlace}"
+                                     style="width:95%" />
+                </h:panelGrid>
+
+                <div style="text-align:center;">tablones
+                    <h:commandButton value="Registrar Anuncio"
+                                     action="#{registroTablonWeb.registrarAnuncioParaExistente()}"
+                                     styleClass="button primary"
+                                     style="margin-top:0.5em;" />
+                </div>
+            </h:form>
+        </section>
+    </ui:define>
+</ui:composition>

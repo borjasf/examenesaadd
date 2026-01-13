@@ -1,0 +1,49 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<ui:define name="title">
+		Listado de Tablones
+	</ui:define>
+
+	<ui:define name="content">
+		<div class="row">
+			<div class="col-12">
+				<h2>Listado de Tablones</h2>
+				
+				<h:messages id="messages" styleClass="error" />
+				
+				<h:dataTable value="#{listadoTablonesWeb.tablones}" var="tablon" 
+					styleClass="default" 
+					headerClass="header"
+					rowClasses="alt,">
+					
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						#{tablon.id}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+						#{tablon.titulo}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Acciones</f:facet>
+						<h:link value="Ver mensajes" outcome="detail">
+							<f:param name="id" value="#{tablon.id}" />
+						</h:link>
+					</h:column>
+					
+				</h:dataTable>
+				
+				<h:panelGroup rendered="#{empty listadoTablonesWeb.tablones}">
+					<p>No hay tablones disponibles.</p>
+				</h:panelGroup>
+				
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

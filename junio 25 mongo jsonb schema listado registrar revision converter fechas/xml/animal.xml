@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<animal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="animal.xsd"
+      id="123123214s">
+    <nombre>Juan</nombre>
+   	<especie>Caballo</especie>
+   	<edadEntrada>24</edadEntrada>
+   	<fechaEntrada>2025-10-01</fechaEntrada>
+   	<adopcion>
+   	<fechaAdopcion>2025-12-01</fechaAdopcion>
+   	<nombreAdoptante>Samuel</nombreAdoptante>
+   	<telefono>123456789</telefono>
+   	</adopcion>
+   	<revisiones>
+   	<revision>
+   	<fecha>2025-12-31</fecha>
+   	<peso>125.1</peso>
+   	<observaciones>observacion</observaciones>
+   	</revision>
+   	
+   	</revisiones>
+</animal>

@@ -1,0 +1,76 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        Listado de Animales
+    </ui:define>
+
+    <ui:define name="content">
+        <h2>Listado de Animales</h2>
+        
+        <h:messages id="messages" styleClass="error" />
+        
+        <!-- Formulario de filtros -->
+        <h:form id="filtrosForm">
+            <fieldset style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px;">
+                <legend>Filtros de búsqueda</legend>
+                
+                <div class="form-group">
+                    <label for="minTecnica">Años en el refugio:</label>
+                    <h:inputText id="anosRefugio" 
+                        value="#{listadoWeb.filtroAnosRefugio}" />
+                </div>
+                
+                <div>
+                    <h:commandButton value="Filtrar" 
+                        action="#{listadoWeb.cargarListado()}" 
+                        styleClass="button" />
+                    <h:commandButton value="Limpiar filtros" 
+                        action="#{listadoWeb.limpiarFiltro()}" 
+                        styleClass="button" style="background-color: #6c757d; margin-left: 10px;" />
+                </div>
+            </fieldset>
+        </h:form>
+                                        
+        <!-- Tabla de obras -->
+        <h:dataTable value="#{listadoWeb.animales}" var="animal">
+            
+            <h:column>
+                <f:facet name="header">Identificador</f:facet>
+                #{animal.id}
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                #{animal.nombre}
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Especie</f:facet>
+                #{animal.especie}
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Fecha de Entrada</f:facet>
+                #{animal.fechaEntrada}
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Adoptado</f:facet>
+                #{animal.adopcion}
+            </h:column>
+            
+        </h:dataTable>
+        
+        <h:panelGroup rendered="#{empty listadoWeb.animales}">
+            <p>No hay animales disponibles.</p>
+        </h:panelGroup>
+        
+        <div style="margin-top: 20px;">
+            <h:link value="Ir a Añadir Revision" outcome="revision" styleClass="button" />
+        </div>
+    </ui:define>
+</ui:composition>

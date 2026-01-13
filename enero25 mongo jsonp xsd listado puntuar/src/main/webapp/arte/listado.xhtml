@@ -1,0 +1,76 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        Listado de Obras
+    </ui:define>
+
+    <ui:define name="content">
+        <h2>Listado de Obras</h2>
+        
+        <h:messages id="messages" styleClass="error" />
+        
+        <!-- Formulario de filtros -->
+        <h:form id="filtrosForm">
+            <fieldset style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px;">
+                <legend>Filtros de búsqueda</legend>
+                
+                <div class="form-group">
+                    <label for="minTecnica">Mínimo puntuación técnica:</label>
+                    <h:inputText id="minTecnica" 
+                        value="#{listadoWeb.filtroMinTecnica}" />
+                </div>
+                
+                <div>
+                    <h:commandButton value="Filtrar" 
+                        action="#{listadoWeb.cargarListado()}" 
+                        styleClass="button" />
+                    <h:commandButton value="Limpiar filtros" 
+                        action="#{listadoWeb.limpiarFiltro()}" 
+                        styleClass="button" style="background-color: #6c757d; margin-left: 10px;" />
+                </div>
+            </fieldset>
+        </h:form>
+                                        
+        <!-- Tabla de obras -->
+        <h:dataTable value="#{listadoWeb.obras}" var="obra">
+            
+            <h:column>
+                <f:facet name="header">Inscripción</f:facet>
+                #{obra.codigoInscripcion}
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Título</f:facet>
+                #{obra.titulo}
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Artista</f:facet>
+                #{obra.artista}
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Técnica</f:facet>
+                #{obra.tecnica}
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Descripción</f:facet>
+                #{obra.descripcion}
+            </h:column>
+            
+        </h:dataTable>
+        
+        <h:panelGroup rendered="#{empty listadoWeb.obras}">
+            <p>No hay obras disponibles.</p>
+        </h:panelGroup>
+        
+        <div style="margin-top: 20px;">
+            <h:link value="Ir a Puntuar Obra" outcome="puntuar" styleClass="button" />
+        </div>
+    </ui:define>
+</ui:composition>

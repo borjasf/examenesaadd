@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="tarea">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string" maxOccurs="1" minOccurs="1"/>
+                <xs:element name="descripcion" type="xs:string" maxOccurs="1" minOccurs="0"/>
+                <xs:element name="estados" type="EstadoTareaType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+   <xs:complexType name="tipo_revision">
+        <xs:sequence>
+            <xs:element name="fecha" type="xs:date"/>
+            <xs:element name="peso" type="xs:double"/>
+            <xs:element name="observaciones" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+   <xs:complexType name="EstadoTareaType">
+   	<xs:sequence>
+   		<xs:element name="estado" type="estadoType" maxOccurs="1"
+   			minOccurs="1">
+   		</xs:element>
+   		<xs:element name="fechaInicio" type="xs:date" maxOccurs="1"
+   			minOccurs="1">
+   		</xs:element>
+   		<xs:element name="fechaFin" type="xs:date" maxOccurs="1" minOccurs="0"></xs:element>
+   	</xs:sequence>
+
+   </xs:complexType>
+
+
+   <xs:simpleType name="estadoType">
+   	<xs:restriction base="xs:string">
+   		<xs:enumeration value="PENDIENTE"></xs:enumeration>
+   		<xs:enumeration value="EN_CURSO"></xs:enumeration>
+   		<xs:enumeration value="EN_REVISION"></xs:enumeration>
+   		<xs:enumeration value="FINALIZADA"></xs:enumeration>
+   		<xs:enumeration value="EN_ESPERA"></xs:enumeration>
+   		<xs:enumeration value="CANCELADA"></xs:enumeration>
+   	</xs:restriction>
+   </xs:simpleType>
+</xs:schema>

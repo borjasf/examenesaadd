@@ -1,0 +1,112 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<ui:define name="title">
+		Mensajes del Tablón
+	</ui:define>
+
+	<ui:define name="metadata">
+		<f:metadata>
+			<f:viewParam name="id" value="#{detalleTablonWeb.idTablon}" />
+			<f:viewAction action="#{detalleTablonWeb.load()}" />
+		</f:metadata>
+	</ui:define>
+
+	<ui:define name="content">
+		<div class="row">
+			<div class="col-12">
+				<h2>Mensajes del Tablón</h2>
+				
+				<h:messages id="messages" styleClass="error" />
+				
+				<!-- Formulario de filtros -->
+				<h:form id="filtrosForm">
+					<fieldset>
+						<legend>Filtros</legend>
+						
+						<div class="row">
+							<div class="col-6">
+								<label for="palabraClave">Palabra clave (título o resumen):</label>
+								<h:inputText id="palabraClave" 
+									value="#{detalleTablonWeb.filtroPalabraClave}" 
+									styleClass="form-control" />
+							</div>
+							
+							<div class="col-6">
+								<label for="fecha">Fecha de publicación:</label>
+								<h:inputText id="fecha" 
+									value="#{detalleTablonWeb.filtroFecha}" 
+									styleClass="form-control">
+									<f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+								</h:inputText>
+								<small>Formato: yyyy-MM-dd</small>
+							</div>
+						</div>
+						
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-12">
+								<h:commandButton value="Filtrar" 
+									action="#{detalleTablonWeb.filtrar()}" 
+									styleClass="button primary" />
+								<h:commandButton value="Limpiar filtros" 
+									action="#{detalleTablonWeb.limpiarFiltros()}" 
+									styleClass="button" />
+							</div>
+						</div>
+					</fieldset>
+				</h:form>
+				
+				<!-- Tabla de mensajes -->
+				<h:dataTable value="#{detalleTablonWeb.mensajes}" var="mensaje" 
+					styleClass="default" 
+					headerClass="header"
+					rowClasses="alt,"
+					style="margin-top: 20px;">
+					
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						#{mensaje.id}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Título</f:facet>
+						#{mensaje.titulo}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Resumen</f:facet>
+						#{mensaje.resumen}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Fecha Publicación</f:facet>
+						<h:outputText value="#{mensaje.fechaPublicacion}">
+							<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy HH:mm" />
+						</h:outputText>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Enlace</f:facet>
+						<h:outputText value="#{mensaje.enlace}" 
+							rendered="#{not empty mensaje.enlace}" />
+						<h:outputText value="-" rendered="#{empty mensaje.enlace}" />
+					</h:column>
+					
+				</h:dataTable>
+				
+				<h:panelGroup rendered="#{empty detalleTablonWeb.mensajes}">
+					<p>No hay mensajes disponibles para este tablón.</p>
+				</h:panelGroup>
+				
+				<!-- Enlace para volver al listado -->
+				<div style="margin-top: 20px;">
+					<h:link value="Volver al listado" outcome="listado" styleClass="button" />
+				</div>
+				
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

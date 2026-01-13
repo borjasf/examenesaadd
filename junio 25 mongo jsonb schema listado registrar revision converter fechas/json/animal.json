@@ -1,0 +1,20 @@
+
+{
+    "adopcion": {
+        "fecha_adopcion": "2025-12-31",
+        "nombre_adoptante": "Samuel",
+        "telefono_adoptante": "123456789"
+    },
+    "edad": 24,
+    "especie": "gato",
+    "fecha_entrada": "2020-12-01",
+    "id": "69555d5bacc737471b7d7a28",
+    "nombre": "Luna",
+    "revisiones": [
+        {
+            "fecha_revision": "2025-12-31",
+            "observaciones": "revision porque si",
+            "peso": 15.2
+        }
+    ]
+}

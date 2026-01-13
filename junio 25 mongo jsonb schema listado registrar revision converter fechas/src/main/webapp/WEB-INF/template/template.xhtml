@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta charset="utf-8" />
+	<title><ui:insert name="title">Aplicación Animales</ui:insert></title>
+	<style>
+		body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+		header { background-color: #333; color: #fff; padding: 10px 0; }
+		header h1 { margin: 0; padding: 0 20px; font-size: 1.5em; }
+		nav ul { list-style: none; padding: 0; margin: 0; display: flex; background: #444; }
+		nav li { margin: 0; }
+		nav a { display: block; padding: 10px 20px; color: #fff; text-decoration: none; }
+		nav a:hover { background-color: #555; }
+		.container { width: 80%; margin: 20px auto; background: #fff; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+		table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+		th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+		th { background-color: #f8f8f8; }
+		.form-group { margin-bottom: 15px; }
+		label { display: block; margin-bottom: 5px; font-weight: bold; }
+		input[type="text"], input[type="number"], textarea, select { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+		.button { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border: none; border-radius: 4px; cursor: pointer; }
+		.button:hover { background-color: #0056b3; }
+		.error { color: red; list-style: none; padding: 0; }
+		.success { color: green; }
+	</style>
+</h:head>
+<h:body>
+
+	<header>
+		<h1><a href="#{request.contextPath}/index.xhtml" style="color: white; text-decoration: none;">Gestión del Refugio</a></h1>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="#{request.contextPath}/index.xhtml">Inicio</a></li>
+			<li><a href="#{request.contextPath}/refugio/listado.xhtml">Listado de Animales</a></li>
+			<li><a href="#{request.contextPath}/refugio/revision.xhtml">Añadir revision</a></li>
+		</ul>
+	</nav>
+
+	<div class="container">
+		<ui:insert name="content" />
+	</div>
+
+	<footer style="text-align: center; padding: 20px; color: #666;">
+		<p>&copy; 2025 Aplicación de Refugio</p>
+	</footer>
+
+</h:body>
+</html>

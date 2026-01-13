@@ -1,0 +1,26 @@
+{
+    "codigo_inscripcion": "C1_25_1",
+    "titulo": "Ecos del Bosque",
+    "descripcion": "Escultura abstracta que simboliza la conexión entre la naturaleza y el ser humano.",
+    "tecnica": "Madera reciclada y resina epóxica",
+    "dimensiones": {
+      "alto": 120,
+      "ancho": 80,
+      "profundidad": 50
+    },
+    "artista": "Esther Tove",
+    "puntuaciones": [
+      {
+        "usuario": "sofh@gmail.com",
+        "nota_tecnica": 3,
+        "nota_artistica": 4,
+        "comentario": "Interesante concepto, pero algunos detalles en la resina podrían ser más refinados."
+      },
+      {
+        "usuario": "miketorres@gmail.com",
+        "nota_tecnica": 4.5,
+        "nota_artistica": 5,
+        "comentario": "Una obra única y con un mensaje poderoso. Gran dominio de los materiales."
+      }
+    ]
+  }

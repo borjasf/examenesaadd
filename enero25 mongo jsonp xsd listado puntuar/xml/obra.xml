@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<obra xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="obra.xsd">
+    
+    <codigo_inscripcion>C1_25_1</codigo_inscripcion>
+    
+    <titulo>Ecos del Bosque</titulo>
+    <descripcion>Escultura abstracta que simboliza la conexión entre la naturaleza y el ser humano.</descripcion>
+    <tecnica>Madera reciclada y resina epóxica</tecnica>
+    
+    <dimensiones>
+        <alto>120</alto>
+        <ancho>80</ancho>
+        <profundidad>50</profundidad>
+    </dimensiones>
+    
+    <artista>Esther Tove</artista>
+    
+    <puntuaciones>
+        <puntuacion>
+            <usuario>sofh@gmail.com</usuario>
+            <nota_tecnica>3.0</nota_tecnica>
+            <nota_artistica>4.0</nota_artistica>
+            <comentario>Interesante concepto...</comentario>
+        </puntuacion>
+    </puntuaciones>
+</obra>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tarea id="acb79968-7adb-481e-b52f-7dd72292e709">
+    <nombre>ir al medico</nombre>
+    <descripcion>dentista</descripcion>
+    <estados>
+        <estado>EN_ESPERA</estado>
+        <fechaInicio>2026-01-01</fechaInicio>
+    </estados>
+</tarea>

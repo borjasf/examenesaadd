@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<feed xmlns="http://www.example.org/tablon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.example.org/tablon tablon.xsd">
+      
+	<link href="https://sede.um.es/sede/tablon/" />
+	<title>TOUM - Tablón Oficial de la Universidad de Murcia - Becas
+		y Ayudas</title>
+	<entry>
+		<id>119466</id>
+		<link
+			href="https://sede.um.es/sede/documento/tablon/2024/01/11/listado-definitivo-de-alumnado-admitido-al-proceso-de-seleccion-de-plazas-para-realizar-practicas-curriculares-en/119466.pdf" />
+		<summary>Fecha de publicación: 11/01/2024</summary>
+		<title>LISTADO DEFINITIVO DE ALUMNADO ADMITIDO AL PROCESO DE
+			SELECCIÓN DE PLAZAS PARA REALIZAR PRÁCTICAS CURRICULARES EN CENTROS
+			EDUCATIVOS EN FRANCIA CONVOCADAS POR RESOLUCIÓN DEL RECTOR
+			R-1885/2023, DE 20 DE DICIEMBRE DE 2023 Y CONVOCATORIA DE ENTREVISTA</title>
+		<updated>2024-01-11T01:00:00Z</updated>
+	</entry>
+	<entry>
+		<id>119483</id>
+		<link
+			href="https://sede.um.es/sede/documento/tablon/2024/01/11/resolucion-del-rector-de-la-universidad-de-murcia-por-la-que-se-conceden-plazas-y-ayudas-economicas-vacantes-para/119483.pdf" />
+		<title>RESOLUCIÓN DEL RECTOR DE LA UNIVERSIDAD DE MURCIA POR
+			LA QUE SE CONCEDEN PLAZAS Y AYUDAS ECONÓMICAS VACANTES PARA
+			MOVILIDAD INTERNACIONAL EN EL MARCO DEL PROGRAMA ERASMUS+ MOVILIDAD
+			INTERNACIONAL CON TERCEROS PAÍSES (KA171) PARA EL PERIODO 2023-2024</title>
+		<updated>2024-01-11T01:00:00Z</updated>
+	</entry>
+	<entry>
+		<id>119426</id>
+		<link
+			href="https://sede.um.es/sede/documento/tablon/2024/01/10/resolucion-del-rector-de-la-universidad-de-murcia-por-la-que-se-resuelve-con-caracter-definitivo-la-r-1614-2023-de-una/119426.pdf" />
+		<title>RESOLUCIÓN DEL RECTOR DE LA UNIVERSIDAD DE MURCIA POR
+			LA QUE SE RESUELVE CON CARÁCTER DEFINITIVO LA R.1614/2023 DE UNA
+			BECA DE I+D+I.INVESTIGACIÓN EN CIBERSEGURIDAD, 5G Y DIGITALIZACIÓN
+			DE LOS SISTEMAS Y LAS INFRAESTRUCTURAS INELIGENTES
+</title>
+		<updated>2024-01-10T01:00:00Z</updated>
+	</entry>
+	<entry>
+		<id>119406</id>
+		<link
+			href="https://sede.um.es/sede/documento/tablon/2024/01/10/resolucion-del-rector-r-21-2024-definitiva-de-personas-admitidas-y-excluidas-a-convocatoria-de-ayudas-para-formacion/119406.pdf" />
+		<summary>Fecha de publicación: 10/01/2024</summary>
+		<title>RESOLUCIÓN DEL RECTOR, R.-21/2024, DEFINITIVA DE
+			PERSONAS ADMITIDAS Y EXCLUIDAS A CONVOCATORIA DE AYUDAS PARA
+			FORMACIÓN PERSONAL INVESTIGADOR ASOCIADAS A PROYECTOS DE
+			INVESTIGACIÓN DEL PLAN EST. DE INVEST. CIENTÍFICA Y TÉCNICA Y DE
+			INNOVACIÓN 2021-2023</title>
+		<updated>2024-01-10T01:00:00Z</updated>
+	</entry>
+	
+</feed>

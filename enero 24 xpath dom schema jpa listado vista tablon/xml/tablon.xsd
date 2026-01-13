@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+        targetNamespace="http://www.example.org/tablon" 
+        xmlns:tns="http://www.example.org/tablon" 
+        elementFormDefault="qualified">
+
+    <element name="feed" type="tns:feed"></element>
+    
+    <complexType name="feed">
+    	<sequence>
+    		<element name="link" type="tns:link" maxOccurs="1"></element>
+    		<element name="title" type="string" minOccurs="1" maxOccurs="1"></element>
+    		<element name="entry" type="tns:entry" minOccurs="1" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="link">
+    	<attribute name="href" type="string" use="required"></attribute>
+    </complexType>
+
+    <complexType name="tipo_enlace_html">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="href" type="string" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="entry">
+    	<sequence>
+    		<element name="id" type="int" minOccurs="1" maxOccurs="1"></element>
+    		<element name="link" type="tns:link" minOccurs="1" maxOccurs="1"></element>
+    		
+            <element name="summary" minOccurs="0" maxOccurs="1">
+                <complexType mixed="true">
+                    <sequence>
+                        <element name="a" type="tns:tipo_enlace_html" minOccurs="0"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+    		<element name="title" type="string" minOccurs="1" maxOccurs="1"></element>
+    		<element name="updated" type="dateTime" minOccurs="1" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+</schema>

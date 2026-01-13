@@ -1,0 +1,55 @@
+<ui:composition template="/WEB-INF/template/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">Añadir Revision</ui:define>
+
+    <ui:define name="content">
+        <h2>Añadir Revision</h2>
+        
+        <h:messages globalOnly="false" styleClass="error" />
+        
+        <h:form>
+            <fieldset style="border: 1px solid #ddd; padding: 20px;">
+                <legend>Datos de la Revisión</legend>
+                
+                <div class="form-group">
+                    <label for="obra">Seleccionar Animal:</label>
+                    <h:selectOneMenu id="animal" value="#{anadirRevisionWeb.idAnimalSeleccionado}" required="true" requiredMessage="Debe seleccionar un animal">
+                        <f:selectItem itemLabel="-- Seleccione un animal --" itemValue="" />
+                        <f:selectItems value="#{anadirRevisionWeb.animalesDisponibles}" var="a" 
+                                       itemLabel="#{a.nombre} (#{a.especie})" itemValue="#{a.id}" />
+                    </h:selectOneMenu>
+                </div>
+                
+                <div class="form-group">
+                    <label for="FechaRevision">Fecha Revision (YYY-MM-DD):</label>
+                    <h:inputText id="FechaRevision" value="#{anadirRevisionWeb.fechaRevision}" required="true" requiredMessage="La fecha es obligatorio">
+                        <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+                    </h:inputText>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pesoAnimal">Peso animal:</label>
+                    <h:inputText id="pesoAnimal" value="#{anadirRevisionWeb.pesoAnimal}" required="true" requiredMessage="El peso es obligatorio">
+                        <f:validateDoubleRange minimum="0.0"/>
+                    </h:inputText>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="observaciones">Observaciones:</label>
+                    <h:inputTextarea id="observaciones" value="#{anadirRevisionWeb.observaciones}" rows="4" />
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h:commandButton value="Añadir" action="#{anadirRevisionWeb.anadirRevision()}" styleClass="button" />
+                    <h:link value="Cancelar / Volver al Listado" outcome="listado" styleClass="button" style="background-color: #6c757d; margin-left: 10px;" />
+                </div>
+                
+            </fieldset>
+        </h:form>
+    </ui:define>
+</ui:composition>

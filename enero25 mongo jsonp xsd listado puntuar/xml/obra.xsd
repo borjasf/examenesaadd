@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="obra">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="codigo_inscripcion" type="xs:string"/>
+                
+                <xs:element name="titulo" type="xs:string"/>
+                <xs:element name="descripcion" type="xs:string"/>
+                <xs:element name="tecnica" type="xs:string"/>
+                
+                <xs:element name="dimensiones" type="tipo_dimension"/>
+                
+                <xs:element name="artista" type="xs:string"/>
+                
+                <xs:element name="puntuaciones" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="puntuacion" type="tipo_puntuacion" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="tipo_dimension">
+        <xs:sequence>
+            <xs:element name="alto" type="xs:decimal"/>
+            <xs:element name="ancho" type="xs:decimal"/>
+            <xs:element name="profundidad" type="xs:decimal" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+   <xs:complexType name="tipo_puntuacion">
+        <xs:sequence>
+            <xs:element name="usuario" type="xs:string"/>
+            
+            <xs:element name="nota_tecnica">
+                <xs:simpleType>
+                    <xs:restriction base="xs:decimal">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="5"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            
+            <xs:element name="nota_artistica">
+                <xs:simpleType>
+                    <xs:restriction base="xs:decimal">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="5"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="comentario" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
